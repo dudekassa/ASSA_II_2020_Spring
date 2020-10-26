@@ -26,6 +26,7 @@ public class NameController {
     public String exampleLink(Model model) {
         String name = "Leszek";
         model.addAttribute("nameSize", nameService.getNameSize(name));
+        model.addAttribute("name", name);
 
         return "example_link";
 
