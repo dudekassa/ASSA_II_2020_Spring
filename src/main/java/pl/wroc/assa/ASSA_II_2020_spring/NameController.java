@@ -16,10 +16,19 @@ public class NameController {
 
     @GetMapping("/")
     public String home(Model model) {
-        String name = "Przemek";
+        String name = "Przemyslaw";
         model.addAttribute("nameSize", nameService.getNameSize(name));
 
         return "index";
+    }
+
+    @GetMapping("/example_link")
+    public String exampleLink(Model model) {
+        String name = "Leszek";
+        model.addAttribute("nameSize", nameService.getNameSize(name));
+
+        return "example_link";
+
     }
 
 }
