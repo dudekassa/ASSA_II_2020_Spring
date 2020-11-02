@@ -11,4 +11,12 @@ public class NameService {
         return name.length();
     }
 
+    public boolean isEvenLettersInName(String name) {
+        int lettersInName = getNameSize(name);
+        if (lettersInName % 2 == 0) {
+            return true;
+        }
+        return false;
+    }
+
 }

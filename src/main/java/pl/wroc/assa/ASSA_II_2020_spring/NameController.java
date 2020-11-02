@@ -18,18 +18,20 @@ public class NameController {
     public String home(Model model) {
         String name = "Przemyslaw";
         model.addAttribute("nameSize", nameService.getNameSize(name));
-
+        model.addAttribute("isEvenLettersInName", nameService.isEvenLettersInName(name));
         return "index";
     }
 
     @GetMapping("/example_link")
     public String exampleLink(Model model) {
-        String name = "Leszek";
+        String name = "Dudek";
         model.addAttribute("nameSize", nameService.getNameSize(name));
         model.addAttribute("name", name);
 
         return "example_link";
 
     }
+
+
 
 }
