@@ -19,6 +19,7 @@ public class NameController {
         String name = "Przemyslaw";
         model.addAttribute("nameSize", nameService.getNameSize(name));
         model.addAttribute("isEvenLettersInName", nameService.isEvenLettersInName(name));
+        model.addAttribute("getName", new GetNameForm());
         return "index";
     }
 
@@ -29,9 +30,8 @@ public class NameController {
         model.addAttribute("name", name);
 
         return "example_link";
-
     }
 
-
+    //tutaj ma byc Twój link
 
 }
