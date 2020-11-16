@@ -6,14 +6,15 @@
 </head>
 <body>
 
-    <p>Przemysław liczba liter:</p>
+    <p th:text="${name}"></p>
+<!--    <p th:text="${surname}"></p>-->
     <div th:text="${nameSize}"></div>
     <div th:text="${isEvenLettersInName}"></div>
 
-<!--    <form th:action="@{/get_name}" method="post" th:object="${getName}">-->
-<!--        <input type="text" id="name" name="name" placeholder="Your name" th:field="*{name}">-->
-<!--        <input type="submit" value="ok">-->
-<!--    </form>-->
+    <form th:action="@{/get_name}" method="post" th:object="${getNameForm}">
+        <input type="text" id="name" name="name" placeholder="Your name" th:field="*{name}">
+        <input type="submit" value="ok">
+    </form>
 
     //to jest przykład
     <div>
