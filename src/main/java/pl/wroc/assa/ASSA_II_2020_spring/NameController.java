@@ -12,9 +12,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class NameController {
 
     private final NameService nameService;
+    private final AuthService authService;
 
-    public NameController(NameService nameService) {
+    public NameController(NameService nameService, AuthService authService) {
         this.nameService = nameService;
+        this.authService = authService;
     }
 
     @GetMapping("/")
@@ -41,7 +43,7 @@ public class NameController {
     public String login(@ModelAttribute("loginForm") LoginForm loginForm,
                               RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("name", loginForm.getName());
-        redirectAttributes.addFlashAttribute("password", loginForm.getPassword());
+        redirectAttributes.addFlashAttribute("isLogin", authService.tryLogin(loginForm.getPassword()));
         redirectAttributes.addFlashAttribute("nameSize", nameService.getNameSize(loginForm.getName()));
         redirectAttributes.addFlashAttribute("isEvenLettersInName", nameService.isEvenLettersInName(loginForm.getName()));
 
