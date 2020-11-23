@@ -6,25 +6,23 @@
 </head>
 <body>
 
-    <p th:text="${name}"></p>
-<!--    <p th:text="${surname}"></p>-->
-    <div th:text="${nameSize}"></div>
-    <div th:text="${isEvenLettersInName}"></div>
-
     <form th:action="@{/get_name}" method="post" th:object="${getNameForm}">
         <input type="text" id="name" name="name" placeholder="Your name" th:field="*{name}">
         <input type="submit" value="ok">
     </form>
 
-    //to jest przykład
+    <p th:text="${name}"></p>
+<!--    <p th:text="${surname}"></p>-->
+    <p>
+        <span>Ilość liter w imieniu: </span>
+        <span th:text="${nameSize}"></span>
+    </p>
+
+    <div th:text="${isEvenLettersInName}"></div>
+
     <div>
         <a href="#" th:href="@{/example_link}">Example Link</a>
     </div>
-
-    <div>
-       tutaj wpisz nowy link
-    </div>
-
 
 </body>
 </html>
