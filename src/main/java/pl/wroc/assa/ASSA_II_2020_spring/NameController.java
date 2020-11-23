@@ -22,7 +22,7 @@ public class NameController {
 //        String name = "Przemyslaw";
 //        model.addAttribute("nameSize", nameService.getNameSize(name));
 //        model.addAttribute("isEvenLettersInName", nameService.isEvenLettersInName(name));
-        model.addAttribute("getNameForm", new GetNameForm());
+        model.addAttribute("loginForm", new LoginForm());
         return "index";
     }
 
@@ -37,12 +37,13 @@ public class NameController {
 
     //tutaj ma byc Twój link
 
-    @PostMapping("/get_name")
-    public String getNameForm(@ModelAttribute("getNameForm") GetNameForm getNameForm,
+    @PostMapping("/login")
+    public String login(@ModelAttribute("loginForm") LoginForm loginForm,
                               RedirectAttributes redirectAttributes) {
-        redirectAttributes.addFlashAttribute("name", getNameForm.getName());
-        redirectAttributes.addFlashAttribute("nameSize", nameService.getNameSize(getNameForm.getName()));
-        redirectAttributes.addFlashAttribute("isEvenLettersInName", nameService.isEvenLettersInName(getNameForm.getName()));
+        redirectAttributes.addFlashAttribute("name", loginForm.getName());
+        redirectAttributes.addFlashAttribute("password", loginForm.getPassword());
+        redirectAttributes.addFlashAttribute("nameSize", nameService.getNameSize(loginForm.getName()));
+        redirectAttributes.addFlashAttribute("isEvenLettersInName", nameService.isEvenLettersInName(loginForm.getName()));
 
         return "redirect:/";
     }

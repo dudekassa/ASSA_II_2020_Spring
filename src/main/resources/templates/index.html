@@ -6,8 +6,9 @@
 </head>
 <body>
 
-    <form th:action="@{/get_name}" method="post" th:object="${getNameForm}">
+    <form th:action="@{/login}" method="post" th:object="${loginForm}">
         <input type="text" id="name" name="name" placeholder="Your name" th:field="*{name}">
+        <input type="text" id="password" name="password" placeholder="Password" th:field="*{password}">
         <input type="submit" value="ok">
     </form>
 
