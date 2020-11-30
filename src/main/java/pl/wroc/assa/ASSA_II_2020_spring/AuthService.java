@@ -14,9 +14,25 @@ public class AuthService {
 
     public AuthService() {
         userWithPassword.put("przemek", "tajne");
+        userWithPassword.put("leszek", "kot");
+        userWithPassword.put("antoni", "papuga");
     }
 
     public boolean tryLogin(String password) {
         return password.equals(PASSWORD);
+    }
+
+    public boolean tryLogin(LoginForm loginForm) {
+
+        boolean isUserNameInDB = userWithPassword.containsKey(loginForm.getName());
+
+        if (isUserNameInDB) {
+            boolean isPasswordCorrect = userWithPassword.get(loginForm.getName()).equals(loginForm.getPassword());
+            if (isPasswordCorrect) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

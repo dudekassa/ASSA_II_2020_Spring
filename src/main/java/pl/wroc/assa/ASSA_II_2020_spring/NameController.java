@@ -43,7 +43,7 @@ public class NameController {
     public String login(@ModelAttribute("loginForm") LoginForm loginForm,
                               RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("name", loginForm.getName());
-        redirectAttributes.addFlashAttribute("isLogin", authService.tryLogin(loginForm.getPassword()));
+        redirectAttributes.addFlashAttribute("isLogin", authService.tryLogin(loginForm));
         redirectAttributes.addFlashAttribute("nameSize", nameService.getNameSize(loginForm.getName()));
         redirectAttributes.addFlashAttribute("isEvenLettersInName", nameService.isEvenLettersInName(loginForm.getName()));
 
