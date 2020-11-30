@@ -42,8 +42,17 @@ public class NameController {
     @PostMapping("/login")
     public String login(@ModelAttribute("loginForm") LoginForm loginForm,
                               RedirectAttributes redirectAttributes) {
+        boolean isLogin = authService.tryLogin(loginForm);
+        String message = "";
+        if (isLogin) {
+            message = "Udało się zalogować";
+        } else {
+            message = "Nie udało się zalogować";
+        }
+        redirectAttributes.addFlashAttribute("isLogin", message);
+
         redirectAttributes.addFlashAttribute("name", loginForm.getName());
-        redirectAttributes.addFlashAttribute("isLogin", authService.tryLogin(loginForm));
+
         redirectAttributes.addFlashAttribute("nameSize", nameService.getNameSize(loginForm.getName()));
         redirectAttributes.addFlashAttribute("isEvenLettersInName", nameService.isEvenLettersInName(loginForm.getName()));
 
