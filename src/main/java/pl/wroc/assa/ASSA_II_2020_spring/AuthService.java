@@ -35,4 +35,19 @@ public class AuthService {
 
         return false;
     }
+
+    public boolean tryRegister(RegisterForm registerForm) {
+
+        String password = registerForm.getPassword();
+        String repeatPassword = registerForm.getRepeatPassword();
+
+        boolean passwordEquals = password.equals(repeatPassword);
+
+        if (passwordEquals) {
+            userWithPassword.put(registerForm.getName(), registerForm.getPassword());
+            return true;
+        }
+
+        return false;
+    }
 }

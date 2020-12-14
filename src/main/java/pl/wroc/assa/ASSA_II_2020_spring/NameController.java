@@ -51,7 +51,7 @@ public class NameController {
         }
         redirectAttributes.addFlashAttribute("isLogin", message);
 
-        redirectAttributes.addFlashAttribute("name", loginForm.getName());
+        redirectAttributes.addFlashAttribute("name", loginForm.getName().toUpperCase());
 
         redirectAttributes.addFlashAttribute("nameSize", nameService.getNameSize(loginForm.getName()));
         redirectAttributes.addFlashAttribute("isEvenLettersInName", nameService.isEvenLettersInName(loginForm.getName()));
@@ -59,4 +59,16 @@ public class NameController {
         return "redirect:/";
     }
 
+    @GetMapping("/register")
+    public String register(Model model) {
+        model.addAttribute("registerForm", new RegisterForm());
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String register(@ModelAttribute("registerForm") RegisterForm registerForm,
+                           RedirectAttributes redirectAttributes) {
+        authService.tryRegister(registerForm);
+        return "redirect:/";
+    }
 }
