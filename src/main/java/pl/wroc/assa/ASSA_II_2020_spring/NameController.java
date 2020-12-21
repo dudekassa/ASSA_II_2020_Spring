@@ -68,7 +68,14 @@ public class NameController {
     @PostMapping("/register")
     public String register(@ModelAttribute("registerForm") RegisterForm registerForm,
                            RedirectAttributes redirectAttributes) {
-        authService.tryRegister(registerForm);
+        boolean isRegister = authService.tryRegister(registerForm);
+        String registerMessage;
+        if (isRegister) {
+            registerMessage = "Rejestracja udana - spróbuj się zalogować";
+        } else {
+            registerMessage = "Rejestracja nie udana";
+        }
+        redirectAttributes.addFlashAttribute("isRegister", registerMessage);
         return "redirect:/";
     }
 }
