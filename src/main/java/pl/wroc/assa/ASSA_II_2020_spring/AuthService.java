@@ -1,5 +1,6 @@
 package pl.wroc.assa.ASSA_II_2020_spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -12,7 +13,10 @@ public class AuthService {
 
     private final Map<String, String> userWithPassword = new HashMap<>();
 
-    public AuthService() {
+    private final SessionService sessionService;
+
+    public AuthService(SessionService sessionService) {
+        this.sessionService = sessionService;
         userWithPassword.put("przemek", "tajne");
         userWithPassword.put("leszek", "kot");
         userWithPassword.put("antoni", "papuga");
@@ -29,10 +33,12 @@ public class AuthService {
         if (isUserNameInDB) {
             boolean isPasswordCorrect = userWithPassword.get(loginForm.getName()).equals(loginForm.getPassword());
             if (isPasswordCorrect) {
+                sessionService.setLogin(true);
+                sessionService.setUserName(loginForm.getName());
                 return true;
             }
         }
-
+        sessionService.setLogin(false);
         return false;
     }
 

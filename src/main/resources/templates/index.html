@@ -16,8 +16,8 @@
         <a href="#" th:href="@{/register}">Rejestracja</a>
     </div>
 
-    <p th:if="${isLogin} != null">
-        <span>Cz zalogowany: </span>
+    <p>
+        <span>Czy zalogowany: </span>
         <span th:text="${isLogin}"></span>
     </p>
 
@@ -25,7 +25,7 @@
         <span th:text="${isRegister}"></span>
     </p>
 
-    <p th:text="${name}"></p>
+    <p th:text="${userName}"></p>
 <!--    <p th:text="${surname}"></p>-->
     <p th:if="${nameSize} != null">
         <span>Ilość liter w imieniu: </span>

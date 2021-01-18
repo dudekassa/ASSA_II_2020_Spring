@@ -1,6 +1,7 @@
 package pl.wroc.assa.ASSA_II_2020_spring;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +14,13 @@ public class NameController {
 
     private final NameService nameService;
     private final AuthService authService;
+    private final SessionService sessionService;
 
-    public NameController(NameService nameService, AuthService authService) {
+    @Autowired
+    public NameController(NameService nameService, AuthService authService, SessionService sessionService) {
         this.nameService = nameService;
         this.authService = authService;
+        this.sessionService = sessionService;
     }
 
     @GetMapping("/")
@@ -25,6 +29,8 @@ public class NameController {
 //        model.addAttribute("nameSize", nameService.getNameSize(name));
 //        model.addAttribute("isEvenLettersInName", nameService.isEvenLettersInName(name));
         model.addAttribute("loginForm", new LoginForm());
+        model.addAttribute("isLogin", sessionService.isLogin());
+        model.addAttribute("userName", sessionService.getUserName());
         return "index";
     }
 
