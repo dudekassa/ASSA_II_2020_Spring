@@ -43,6 +43,12 @@ public class NameController {
         return "example_link";
     }
 
+    @GetMapping("/logout")
+    public String logout() {
+        authService.logout();
+        return "redirect:/";
+    }
+
     //tutaj ma byc Twój link
 
     @PostMapping("/login")

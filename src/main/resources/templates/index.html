@@ -12,33 +12,41 @@
             <input type="password" id="password" name="password" placeholder="Password" th:field="*{password}">
             <input type="submit" value="ok">
         </form>
-    </div>
 
-
-    <div th:if="${isLogin == null}">
         <a href="#" th:href="@{/register}">Rejestracja</a>
+
+        <p th:if="${isRegister} != null">
+            <span th:text="${isRegister}"></span>
+        </p>
     </div>
 
-    <p>
-        <span>Czy zalogowany: </span>
-        <span th:text="${isLogin}"></span>
-    </p>
 
-    <p th:if="${isRegister} != null">
-        <span th:text="${isRegister}"></span>
-    </p>
+    <div th:if="${isLogin}">
+        <p>
+            <span>Jesteś zalogowany: </span>
+            <span th:text="${userName}"></span>
+        </p>
 
-    <p th:text="${userName}"></p>
-<!--    <p th:text="${surname}"></p>-->
-    <p th:if="${nameSize} != null">
-        <span>Ilość liter w imieniu: </span>
-        <span th:text="${nameSize}"></span>
-    </p>
+        <p>
+            <span>Wyloguj się: </span>
+            <span>
+                <a href="#" th:href="@{/logout}">wyloguj</a>
+            </span>
+        </p>
 
-    <div th:if="${isEvenLettersInName} != null">
-        <span>Czy liczba liter w imieniu jest parzysta?: </span>
-        <span th:text="${isEvenLettersInName}"></span>
+        <p th:if="${nameSize} != null">
+            <span>Ilość liter w imieniu: </span>
+            <span th:text="${nameSize}"></span>
+        </p>
+
+        <div th:if="${isEvenLettersInName} != null">
+            <span>Czy liczba liter w imieniu jest parzysta?: </span>
+            <span th:text="${isEvenLettersInName}"></span>
+        </div>
+
     </div>
+
+
 
     <div>
         <a href="#" th:href="@{/example_link}">Example Link</a>

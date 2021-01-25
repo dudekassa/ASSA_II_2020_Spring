@@ -56,4 +56,10 @@ public class AuthService {
 
         return false;
     }
+
+    public boolean logout() {
+        sessionService.setUserName(null);
+        sessionService.setLogin(false);
+        return !sessionService.isLogin();
+    }
 }
