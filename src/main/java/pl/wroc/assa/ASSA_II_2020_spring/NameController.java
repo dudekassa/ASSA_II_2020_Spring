@@ -44,8 +44,9 @@ public class NameController {
     }
 
     @GetMapping("/logout")
-    public String logout() {
-        authService.logout();
+    public String logout(RedirectAttributes redirectAttributes) {
+        boolean isLogout = authService.logout();
+        redirectAttributes.addFlashAttribute("isLogout", isLogout);
         return "redirect:/";
     }
 
