@@ -6,11 +6,14 @@
 </head>
 <body>
 
-    <form th:action="@{/login}" method="post" th:object="${loginForm}">
-        <input type="text" id="name" name="name" placeholder="Your name" th:field="*{name}">
-        <input type="password" id="password" name="password" placeholder="Password" th:field="*{password}">
-        <input type="submit" value="ok">
-    </form>
+    <div th:if="${isLogin == false}">
+        <form th:action="@{/login}" method="post" th:object="${loginForm}">
+            <input type="text" id="name" name="name" placeholder="Your name" th:field="*{name}">
+            <input type="password" id="password" name="password" placeholder="Password" th:field="*{password}">
+            <input type="submit" value="ok">
+        </form>
+    </div>
+
 
     <div th:if="${isLogin == null}">
         <a href="#" th:href="@{/register}">Rejestracja</a>
