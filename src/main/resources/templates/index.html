@@ -51,8 +51,14 @@
     </div>
 
 
-    <div>
-        <a href="#" th:href="@{/example_link}">Example Link</a>
+    <div th:each="user : ${users}">
+        <p>
+            <span th:text="${user.getId()}"></span>
+
+            <span th:text="${user.getLogin()}"></span>
+
+            <span th:text="${user.getPassword()}"></span>
+        </p>
     </div>
 
 </body>

@@ -31,6 +31,7 @@ public class NameController {
         model.addAttribute("loginForm", new LoginForm());
         model.addAttribute("isLogin", sessionService.isLogin());
         model.addAttribute("userName", sessionService.getUserName());
+        model.addAttribute("users", authService.getUsers());
         return "index";
     }
 
