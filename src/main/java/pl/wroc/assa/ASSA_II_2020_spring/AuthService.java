@@ -3,7 +3,6 @@ package pl.wroc.assa.ASSA_II_2020_spring;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -31,15 +30,12 @@ public class AuthService {
 
     public boolean tryLogin(LoginForm loginForm) {
 
-        boolean isUserNameInDB = userWithPassword.containsKey(loginForm.getName());
+        User user = userRepository.findByLoginAndPassword(loginForm.getName(), loginForm.getPassword());
 
-        if (isUserNameInDB) {
-            boolean isPasswordCorrect = userWithPassword.get(loginForm.getName()).equals(loginForm.getPassword());
-            if (isPasswordCorrect) {
-                sessionService.setLogin(true);
-                sessionService.setUserName(loginForm.getName());
-                return true;
-            }
+        if (user != null) {
+            sessionService.setLogin(true);
+            sessionService.setUserName(loginForm.getName());
+            return true;
         }
         sessionService.setLogin(false);
         return false;
@@ -47,6 +43,7 @@ public class AuthService {
 
     public boolean tryRegister(RegisterForm registerForm) {
 
+        //sprawdzenie czy uzytkownik już istnieje
         String password = registerForm.getPassword();
         String repeatPassword = registerForm.getRepeatPassword();
 

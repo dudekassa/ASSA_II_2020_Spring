@@ -63,7 +63,7 @@ public class NameController {
         } else {
             message = "Nie udało się zalogować";
         }
-        redirectAttributes.addFlashAttribute("isLogin", message);
+        redirectAttributes.addFlashAttribute("loginMessage", message);
 
         redirectAttributes.addFlashAttribute("name", loginForm.getName().toUpperCase());
 

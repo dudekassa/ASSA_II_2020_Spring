@@ -20,6 +20,10 @@
         </p>
     </div>
 
+    <div th:if="${loginMessage != null}">
+        <p th:text="${loginMessage}"></p>
+    </div>
+
 
     <div th:if="${isLogin}">
         <p>
@@ -47,7 +51,7 @@
     </div>
 
     <div th:if="${isLogout}">
-        <span>Jesteś wylogowany !</span>
+        <span>Jesteś wylogowany!</span>
     </div>
 
 
