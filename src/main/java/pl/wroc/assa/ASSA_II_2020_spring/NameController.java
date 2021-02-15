@@ -92,4 +92,12 @@ public class NameController {
         redirectAttributes.addFlashAttribute("isRegister", registerMessage);
         return "redirect:/";
     }
+
+    @GetMapping("/delete")
+    public String delete() {
+
+
+
+        return "index";
+    }
 }
