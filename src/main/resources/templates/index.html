@@ -54,9 +54,24 @@
         <span>Jesteś wylogowany!</span>
     </div>
 
+    <style>
+<!--        tu piszesz style dla widoku-->
+        .record {
+            border: 1px solid black;
+            font-size: 40px;
+            background-color: lightblue;
+        }
+
+        .record > span {
+            border: 1px solid black;
+            font-size: 40px;
+            background-color: lightblue;
+        }
+
+    </style>
 
     <div th:each="user : ${users}">
-        <p>
+        <p class="record">
             <span th:text="${user.getId()}"></span>
 
             <span th:text="${user.getLogin()}"></span>
