@@ -99,6 +99,6 @@ public class NameController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") int id) {
         userService.deleteUser(id);
-        return "index";
+        return "redirect:/";
     }
 }
