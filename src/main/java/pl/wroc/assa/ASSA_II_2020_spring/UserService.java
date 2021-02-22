@@ -20,4 +20,9 @@ public class UserService {
         return true;
     }
 
+    public boolean deleteUser(int id) {
+        userRepository.deleteById(id);
+        return true;
+    }
+
 }

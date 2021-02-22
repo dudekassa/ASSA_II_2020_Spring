@@ -62,6 +62,10 @@
             <span th:text="${user.getLogin()}"></span>
 
             <span th:text="${user.getPassword()}"></span>
+
+            <span>
+                <a th:href="@{/delete/{id} (id=${user.getId()})}">Delete</a>
+            </span>
         </p>
     </div>
 

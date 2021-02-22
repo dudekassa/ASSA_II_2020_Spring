@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -15,12 +16,14 @@ public class NameController {
     private final NameService nameService;
     private final AuthService authService;
     private final SessionService sessionService;
+    private final UserService userService;
 
     @Autowired
-    public NameController(NameService nameService, AuthService authService, SessionService sessionService) {
+    public NameController(NameService nameService, AuthService authService, SessionService sessionService, UserService userService) {
         this.nameService = nameService;
         this.authService = authService;
         this.sessionService = sessionService;
+        this.userService = userService;
     }
 
     @GetMapping("/")
@@ -93,11 +96,9 @@ public class NameController {
         return "redirect:/";
     }
 
-    @GetMapping("/delete")
-    public String delete() {
-
-
-
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") int id) {
+        userService.deleteUser(id);
         return "index";
     }
 }
