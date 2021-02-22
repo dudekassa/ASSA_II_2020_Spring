@@ -84,6 +84,12 @@
             <span>
                 <a th:href="@{/delete/{id} (id=${user.getId()})}">Delete</a>
             </span>
+            <span>
+                <a th:href="@{/delete/} + ${user.getId()}">Delete</a>
+            </span>
+            <span>
+                <a th:href="'/delete/' + ${user.getId()}">Delete</a>
+            </span>
         </p>
     </div>
 
