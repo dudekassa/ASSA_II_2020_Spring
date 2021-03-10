@@ -101,4 +101,21 @@ public class NameController {
         userService.deleteUser(id);
         return "redirect:/";
     }
+
+    @GetMapping("/change_password")
+    public String changePassword(Model model) {
+        model.addAttribute("changePasswordForm", new ChangePasswordForm());
+        return "change_password";
+    }
+
+    @PostMapping("/change_password")
+    public String changePassword(@ModelAttribute("changePasswordForm") ChangePasswordForm changePasswordForm,
+                           RedirectAttributes redirectAttributes) {
+
+        authService.changePassword(changePasswordForm);
+
+
+        return "redirect:/";
+    }
+
 }

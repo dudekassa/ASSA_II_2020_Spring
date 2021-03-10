@@ -35,6 +35,7 @@ public class AuthService {
         if (user != null) {
             sessionService.setLogin(true);
             sessionService.setUserName(loginForm.getName());
+            sessionService.setUser(user);
             return true;
         }
         sessionService.setLogin(false);
@@ -68,5 +69,26 @@ public class AuthService {
 
     public Iterable<User> getUsers() {
         return userRepository.findAll();
+    }
+
+    public boolean changePassword(ChangePasswordForm changePasswordForm) {
+
+        if (sessionService.getUser().getPassword().equals(changePasswordForm.getOldPassword())) {
+
+            String newPassword = changePasswordForm.getNewPassword();
+            String repeatPassword = changePasswordForm.getRepeatPassword();
+
+            boolean passwordEquals = newPassword.equals(repeatPassword);
+
+            if (passwordEquals) {
+                User user = sessionService.getUser();
+                user.setPassword(newPassword);
+                userRepository.save(user);
+                sessionService.setUser(user);
+                return true;
+            }
+        }
+
+        return false;
     }
 }
