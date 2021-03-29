@@ -2,49 +2,17 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+
     <title>Name Service</title>
-
-    <style>
-
-        .layout {
-            border: 3px solid black;
-            margin-top: 5px;
-            margin-bottom: 5px;
-            margin-right: auto;
-            margin-left: auto;
-            background-color: white;
-            width: 800px;
-        }
-
-        .record {
-            border: 1px solid black;
-            background-color: lightblue;
-            padding: 10px;
-        }
-
-        .record > span {
-            border: 1px solid black;
-            padding: 5px;
-            font-size: 30px;
-            background-color: lightblue;
-        }
-
-        .user_list {
-            border: 3px solid black;
-            margin-top: 5px;
-            margin-bottom: 5px;
-            margin-right: auto;
-            margin-left: auto;
-            background-color: white;
-            width: 600px;
-        }
-
-    </style>
 
 </head>
 <body>
 
     <div class="layout">
+
+        <a th:href="@{/welcome}">Welcome</a>
 
         <div th:if="${isLogin == false}">
             <form th:action="@{/login}" method="post" th:object="${loginForm}">
@@ -94,28 +62,6 @@
 
         <div th:if="${isLogout}">
             <span>Jesteś wylogowany!</span>
-        </div>
-
-
-
-        <div class="user_list" th:each="user : ${users}">
-            <p class="record">
-                <span th:text="${user.getId()}">1</span>
-
-                <span th:text="${user.getLogin()}">User</span>
-
-                <span th:text="${user.getPassword()}">1234</span>
-
-                <span>
-                <a th:href="@{/delete/{id} (id=${user.getId()})}">Delete</a>
-            </span>
-                <span>
-                <a th:href="@{/delete/} + ${user.getId()}">Delete</a>
-            </span>
-                <span>
-                <a th:href="'/delete/' + ${user.getId()}">Delete</a>
-            </span>
-            </p>
         </div>
 
     </div>

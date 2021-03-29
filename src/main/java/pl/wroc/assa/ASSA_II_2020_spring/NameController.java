@@ -118,4 +118,9 @@ public class NameController {
         return "redirect:/";
     }
 
+    @GetMapping("/welcome")
+    public String welcome() {
+        return "welcome";
+    }
+
 }

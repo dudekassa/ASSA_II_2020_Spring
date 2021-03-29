@@ -1,0 +1,32 @@
+.layout {
+            border: 3px solid black;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: white;
+            width: 800px;
+        }
+
+        .record {
+            border: 1px solid black;
+            background-color: lightblue;
+            padding: 10px;
+        }
+
+        .record > span {
+            border: 1px solid black;
+            padding: 5px;
+            font-size: 30px;
+            background-color: lightblue;
+        }
+
+        .user_list {
+            border: 3px solid black;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: white;
+            width: 600px;
+        }
