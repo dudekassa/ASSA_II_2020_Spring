@@ -27,27 +27,6 @@ public class NameController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
-    public String home(Model model) {
-//        String name = "Przemyslaw";
-//        model.addAttribute("nameSize", nameService.getNameSize(name));
-//        model.addAttribute("isEvenLettersInName", nameService.isEvenLettersInName(name));
-        model.addAttribute("loginForm", new LoginForm());
-        model.addAttribute("isLogin", sessionService.isLogin());
-        model.addAttribute("userName", sessionService.getUserName());
-        model.addAttribute("users", authService.getUsers());
-        return "index";
-    }
-
-    @GetMapping("/example_link")
-    public String exampleLink(Model model) {
-        String name = "Dudek";
-        model.addAttribute("nameSize", nameService.getNameSize(name));
-        model.addAttribute("name", name);
-
-        return "example_link";
-    }
-
     @GetMapping("/logout")
     public String logout(RedirectAttributes redirectAttributes) {
         boolean isLogout = authService.logout();
@@ -117,11 +96,6 @@ public class NameController {
 
 
         return "redirect:/";
-    }
-
-    @GetMapping("/welcome")
-    public String welcome() {
-        return "welcome";
     }
 
 }
