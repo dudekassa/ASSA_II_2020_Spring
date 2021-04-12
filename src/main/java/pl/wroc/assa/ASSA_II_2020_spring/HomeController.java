@@ -24,9 +24,6 @@ public class HomeController {
         this.userService = userService;
     }
 
-
-
-
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("loginForm", new LoginForm());
