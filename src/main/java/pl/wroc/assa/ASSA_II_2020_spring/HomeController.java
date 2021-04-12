@@ -40,13 +40,4 @@ public class HomeController {
     public String welcome() {
         return "welcome";
     }
-
-    @GetMapping("/example_link")
-    public String exampleLink(Model model) {
-        String name = "Dudek";
-        model.addAttribute("nameSize", nameService.getNameSize(name));
-        model.addAttribute("name", name);
-
-        return "example_link";
-    }
 }
