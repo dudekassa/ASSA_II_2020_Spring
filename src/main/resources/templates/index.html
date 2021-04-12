@@ -12,57 +12,57 @@
 
     <div class="layout">
 
-        <a th:href="@{/welcome}">Welcome</a>
+        <a href="#" th:href="@{/welcome}">Welcome</a>
 
-        <div th:if="${isLogin == false}">
-            <form th:action="@{/login}" method="post" th:object="${loginForm}">
-                <input type="text" id="name" name="name" placeholder="Your name" th:field="*{name}">
-                <input type="password" id="password" name="password" placeholder="Password" th:field="*{password}">
-                <input type="submit" value="ok">
-            </form>
+<!--        <div th:if="${isLogin == false}">-->
+<!--            <form th:action="@{/login}" method="post" th:object="${loginForm}">-->
+<!--                <input type="text" id="name" name="name" placeholder="Your name" th:field="*{name}">-->
+<!--                <input type="password" id="password" name="password" placeholder="Password" th:field="*{password}">-->
+<!--                <input type="submit" value="ok">-->
+<!--            </form>-->
 
-            <a href="#" th:href="@{/register}">Rejestracja</a>
+<!--            <a href="#" th:href="@{/register}">Rejestracja</a>-->
 
-            <p th:if="${isRegister} != null">
-                <span th:text="${isRegister}"></span>
-            </p>
-        </div>
+<!--            <p th:if="${isRegister} != null">-->
+<!--                <span th:text="${isRegister}"></span>-->
+<!--            </p>-->
+<!--        </div>-->
 
-        <div th:if="${loginMessage != null}">
-            <p th:text="${loginMessage}"></p>
-        </div>
+<!--        <div th:if="${loginMessage != null}">-->
+<!--            <p th:text="${loginMessage}"></p>-->
+<!--        </div>-->
 
 
-        <div th:if="${isLogin}">
-            <p>
-                <span>Jesteś zalogowany: </span>
-                <span th:text="${userName}"></span>
-            </p>
+<!--        <div th:if="${isLogin}">-->
+<!--            <p>-->
+<!--                <span>Jesteś zalogowany: </span>-->
+<!--                <span th:text="${userName}"></span>-->
+<!--            </p>-->
 
-            <a th:href="@{/change_password/}">Change Password</a>
+<!--            <a th:href="@{/change_password/}">Change Password</a>-->
 
-            <p>
-                <span>Wyloguj się: </span>
-                <span>
-                <a href="#" th:href="@{/logout}">wyloguj</a>
-            </span>
-            </p>
+<!--            <p>-->
+<!--                <span>Wyloguj się: </span>-->
+<!--                <span>-->
+<!--                <a href="#" th:href="@{/logout}">wyloguj</a>-->
+<!--            </span>-->
+<!--            </p>-->
 
-            <p th:if="${nameSize} != null">
-                <span>Ilość liter w imieniu: </span>
-                <span th:text="${nameSize}"></span>
-            </p>
+<!--            <p th:if="${nameSize} != null">-->
+<!--                <span>Ilość liter w imieniu: </span>-->
+<!--                <span th:text="${nameSize}"></span>-->
+<!--            </p>-->
 
-            <div th:if="${isEvenLettersInName} != null">
-                <span>Czy liczba liter w imieniu jest parzysta?: </span>
-                <span th:text="${isEvenLettersInName}"></span>
-            </div>
+<!--            <div th:if="${isEvenLettersInName} != null">-->
+<!--                <span>Czy liczba liter w imieniu jest parzysta?: </span>-->
+<!--                <span th:text="${isEvenLettersInName}"></span>-->
+<!--            </div>-->
 
-        </div>
+<!--        </div>-->
 
-        <div th:if="${isLogout}">
-            <span>Jesteś wylogowany!</span>
-        </div>
+<!--        <div th:if="${isLogout}">-->
+<!--            <span>Jesteś wylogowany!</span>-->
+<!--        </div>-->
 
     </div>
 

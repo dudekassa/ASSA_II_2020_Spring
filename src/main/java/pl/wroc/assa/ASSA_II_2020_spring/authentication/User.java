@@ -1,4 +1,4 @@
-package pl.wroc.assa.ASSA_II_2020_spring;
+package pl.wroc.assa.ASSA_II_2020_spring.authentication;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

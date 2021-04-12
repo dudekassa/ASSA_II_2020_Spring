@@ -1,4 +1,4 @@
-package pl.wroc.assa.ASSA_II_2020_spring;
+package pl.wroc.assa.ASSA_II_2020_spring.authentication;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;

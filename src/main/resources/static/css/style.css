@@ -6,6 +6,8 @@
             margin-left: auto;
             background-color: white;
             width: 800px;
+            background: grey;
+            text-align: center;
         }
 
         .record {

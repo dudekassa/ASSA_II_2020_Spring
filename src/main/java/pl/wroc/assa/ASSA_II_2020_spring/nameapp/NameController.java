@@ -1,4 +1,4 @@
-package pl.wroc.assa.ASSA_II_2020_spring;
+package pl.wroc.assa.ASSA_II_2020_spring.nameapp;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pl.wroc.assa.ASSA_II_2020_spring.authentication.*;
 
 @Controller
 public class NameController {
