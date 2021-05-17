@@ -11,8 +11,15 @@
     <form th:action="@{/name/process}" method="post">
         <label for="name_app_name">Name</label>
         <input type="text" placeholder="name" name="name" id="name_app_name">
+        <label for="nationality_id">Name</label>
+        <input type="text" placeholder="nationality" name="nationality" id="nationality_id">
         <input type="submit" value="Submit">
     </form>
+
+    <div th:if="${nameLength != null}">
+        <p>Twoje imię: <span th:text="${name}">Leszek</span></p>
+        <p>Kraj: <span th:text="${nationality}">Polska</span></p>
+    </div>
 
     <div th:if="${nameLength != null}">
         <p th:text="${nameLength}"></p>

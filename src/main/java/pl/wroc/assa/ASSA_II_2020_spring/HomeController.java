@@ -31,8 +31,12 @@ public class HomeController {
     }
 
     @PostMapping("/name/process")
-    public String nameProcess(@RequestParam(name="name") String name, Model model) {
+    public String nameProcess(@RequestParam(name="name") String name,
+                              @RequestParam(name="nationality") String nationality,
+                              Model model) {
         model.addAttribute("nameLength", nameModel.getNameLength(name));
+        model.addAttribute("nationality", nationality);
+        model.addAttribute("name", name);
         return "name_app";
     }
 }
