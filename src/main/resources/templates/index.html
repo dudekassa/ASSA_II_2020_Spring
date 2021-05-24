@@ -14,6 +14,18 @@
 
         <h1>Start Project</h1>
 
+        <form th:action="@{is_adult}" method="post">
+
+            <input type="date" id="born_date" name="date"/>
+
+            <input type="submit" value="submit">
+
+        </form>
+
+        <div th:text="${date}">
+           przykład stron dla pełnoletnich.
+        </div>
+
     </div>
 
 
