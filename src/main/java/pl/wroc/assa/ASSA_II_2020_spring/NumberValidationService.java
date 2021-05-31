@@ -6,7 +6,19 @@ import org.springframework.stereotype.Service;
 public class NumberValidationService {
 
     public boolean isValidNumber(String number) {
+
+        String numberWithoutDash = number.replaceAll("-","");
         int validDigitNumber = 9;
-        return number.length() == validDigitNumber;
+        char[] numberArray =  numberWithoutDash.trim().toCharArray();
+        boolean isDigit = true;
+
+        for (int i = 0; i < numberArray.length; i++) {
+            if (!Character.isDigit(numberArray[i])) {
+                isDigit = false;
+                break;
+            }
+        }
+
+        return numberWithoutDash.trim().length() == validDigitNumber && isDigit;
     }
 }
