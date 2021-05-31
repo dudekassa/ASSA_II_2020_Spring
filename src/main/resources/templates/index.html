@@ -22,6 +22,25 @@
 
         </form>
 
+        <form th:action="@{is_valid_number}" method="post">
+
+            <input type="text" id="phone_number" name="phone_number"/>
+
+            <input type="submit" value="submit">
+
+        </form>
+
+        <div th:if="${isValidNumber != null}">
+            <div th:if="${isValidNumber}">
+                Numer jest poprawny
+            </div>
+            <div th:if="${!isValidNumber}">
+                Numer nie jest poprawny
+            </div>
+        </div>
+
+
+
         <div th:text="${date}">
            przykład stron dla pełnoletnich.
         </div>
