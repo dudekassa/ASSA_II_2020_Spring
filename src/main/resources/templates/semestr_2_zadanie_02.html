@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
 
+    <link rel="stylesheet" href="../static/css/normalize.css" th:href="@{/css/normalize.css}">
     <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="../static/css/quiz.css" th:href="@{/css/quiz.css}">
 
     <title>Semestr II - Zadanie 02 - Quiz</title>
 </head>
@@ -15,7 +17,7 @@
 
     <div class="quiz">
 
-        <div th:if="${isAnswered}">
+        <div th:if="${isAnswered}" class="quiz_answers hide">
             <h3>Odpowiedzi</h3>
             <div>
                 <span>Pytanie 1 - Co oznacza literka C w akronimie CRUD: </span>
@@ -46,20 +48,20 @@
 
 
         <div th:unless="${isAnswered}">
-            <form action="#" th:action="@{/semestr_2_zadanie_02/process}" method="post" th:object="${quiz}">
+            <form id="quiz" action="#" th:action="@{/semestr_2_zadanie_02/process}" method="post" th:object="${quiz}">
                 <div class="quiz_grid">
                     <label for="pytanie_01">Pytanie 1 - Co oznacza literka C w akronimie CRUD</label>
-                    <input id="pytanie_01" type="text" placeholder="Odpowiedź" th:field="*{questionForC}">
+                    <input class="input" id="pytanie_01" type="text" placeholder="Odpowiedź" th:field="*{questionForC}">
                     <label for="pytanie_02">Pytanie 2 - Co oznacza literka R w akronimie CRUD</label>
-                    <input id="pytanie_02" type="text" placeholder="Odpowiedź" th:field="*{questionForR}">
+                    <input class="input" id="pytanie_02" type="text" placeholder="Odpowiedź" th:field="*{questionForR}">
                     <label for="pytanie_03">Pytanie 3 - Co oznacza literka U w akronimie CRUD</label>
-                    <input id="pytanie_03" type="text" placeholder="Odpowiedź" th:field="*{questionForU}">
+                    <input class="input" id="pytanie_03" type="text" placeholder="Odpowiedź" th:field="*{questionForU}">
                     <label for="pytanie_04">Pytanie 4 - Co oznacza literka D w akronimie CRUD</label>
-                    <input id="pytanie_04" type="text" placeholder="Odpowiedź" th:field="*{questionForD}">
+                    <input class="input" id="pytanie_04" type="text" placeholder="Odpowiedź" th:field="*{questionForD}">
                 </div>
 
                 <div class="button_bar">
-                    <input type="submit" value="Send">
+                    <input class="quiz_submit" type="submit" value="Send">
                 </div>
 
             </form>

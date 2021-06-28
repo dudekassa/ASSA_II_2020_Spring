@@ -1,22 +1,8 @@
+.hide {
+    display: none;
+}
+
 .layout {
     margin: 0;
     font-size: 1.6rem;
-}
-
-.quiz {
-    width: 100%;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.quiz_grid {
-    margin: 40px;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 20px;
-}
-
-.quiz_grid > label {
-
 }
