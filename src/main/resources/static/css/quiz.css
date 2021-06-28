@@ -5,8 +5,6 @@
     --input-focus-l: 42%;
 }
 
-
-
 /*Reset Styles*/
 *,
 *::before,
@@ -59,7 +57,6 @@
 .button_bar {
     margin: 30px 20px;
 }
-
 
 .quiz_submit {
     border: none;
