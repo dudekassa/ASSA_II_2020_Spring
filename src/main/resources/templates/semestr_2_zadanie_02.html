@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+
+    <title>Semestr II - Zadanie 02 - Quiz</title>
+</head>
+<body>
+
+<div class="layout">
+
+    <h2>Semestr II - Zadanie 02</h2>
+
+    <div class="quiz">
+
+        <div th:if="${isAnswered}">
+            <h3>Odpowiedzi</h3>
+            <div>
+                <span>Pytanie 1 - Co oznacza literka C w akronimie CRUD: </span>
+                <span th:text="${quiz.questionForC}"></span>
+            </div>
+            <div>
+                <span>Pytanie 2 - Co oznacza literka R w akronimie CRUD: </span>
+                <span th:text="${quiz.questionForR}"></span>
+            </div>
+            <div>
+                <span>Pytanie 3 - Co oznacza literka U w akronimie CRUD: </span>
+                <span th:text="${quiz.questionForU}"></span>
+            </div>
+            <div>
+                <span>Pytanie 4 - Co oznacza literka D w akronimie CRUD: </span>
+                <span th:text="${quiz.questionForD}"></span>
+            </div>
+
+            <div class="button_bar">
+                <form action="/edit" th:action="@{/semestr_2_zadanie_02/edit}" method="post">
+                    <input type="submit" value="edit">
+                </form>
+                <form action="/reset" th:action="@{/semestr_2_zadanie_02/reset}" method="post">
+                    <input type="submit" value="reset">
+                </form>
+            </div>
+        </div>
+
+
+        <div th:unless="${isAnswered}">
+            <form action="#" th:action="@{/semestr_2_zadanie_02/process}" method="post" th:object="${quiz}">
+                <div class="quiz_grid">
+                    <label for="pytanie_01">Pytanie 1 - Co oznacza literka C w akronimie CRUD</label>
+                    <input id="pytanie_01" type="text" placeholder="Odpowiedź" th:field="*{questionForC}">
+                    <label for="pytanie_02">Pytanie 2 - Co oznacza literka R w akronimie CRUD</label>
+                    <input id="pytanie_02" type="text" placeholder="Odpowiedź" th:field="*{questionForR}">
+                    <label for="pytanie_03">Pytanie 3 - Co oznacza literka U w akronimie CRUD</label>
+                    <input id="pytanie_03" type="text" placeholder="Odpowiedź" th:field="*{questionForU}">
+                    <label for="pytanie_04">Pytanie 4 - Co oznacza literka D w akronimie CRUD</label>
+                    <input id="pytanie_04" type="text" placeholder="Odpowiedź" th:field="*{questionForD}">
+                </div>
+
+                <div class="button_bar">
+                    <input type="submit" value="Send">
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
