@@ -1,4 +1,4 @@
-package pl.wroc.assa.ASSA_II_2020_spring.semetr2zadanie02;
+package pl.wroc.assa.ASSA_II_2020_spring.quiz;
 
 public class QuizForm {
 

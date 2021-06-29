@@ -1,4 +1,4 @@
-package pl.wroc.assa.ASSA_II_2020_spring.semetr2zadanie02;
+package pl.wroc.assa.ASSA_II_2020_spring.quiz;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,28 +20,28 @@ public class QuizController {
         return quizService.isAnswered();
     }
 
-    @GetMapping("/semestr_2_zadanie_02")
-    public String semestr2Zadanie02(Model model) {
+    @GetMapping("/quiz")
+    public String quiz(Model model) {
         model.addAttribute("quiz", quizService.getQuizForm());
-        return "semestr_2_zadanie_02";
+        return "quiz";
     }
 
-    @PostMapping("/semestr_2_zadanie_02/edit")
+    @PostMapping("/quiz/edit")
     public String edit() {
         quizService.edit();
-        return "redirect:/semestr_2_zadanie_02";
+        return "redirect:/quiz";
     }
 
-    @PostMapping("/semestr_2_zadanie_02/reset")
+    @PostMapping("/quiz/reset")
     public String reset() {
         quizService.reset();
-        return "redirect:/semestr_2_zadanie_02";
+        return "redirect:/quiz";
     }
 
-    @PostMapping("/semestr_2_zadanie_02/process")
+    @PostMapping("/quiz/process")
     public String quizFormProcess(@ModelAttribute("quiz") QuizForm quizForm) {
         quizService.save(quizForm);
-        return "redirect:/semestr_2_zadanie_02";
+        return "redirect:/quiz";
     }
 
 }
